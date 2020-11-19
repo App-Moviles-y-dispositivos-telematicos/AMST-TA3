@@ -79,7 +79,7 @@ public class PerfilUsuario extends AppCompatActivity {
         Map<String, String> hola_tweet = new HashMap<String, String>();
         hola_tweet.put("autor", autor);
         hola_tweet.put("fecha", fecha);
-        DatabaseReference tweets = db_reference.child("Grupo 0").child("tweets");
+        DatabaseReference tweets = db_reference.child("Grupo 5").child("tweets");
         tweets.setValue(tweet);
         tweets.child(tweet).child("autor").setValue(autor);
         tweets.child(tweet).child("fecha").setValue(fecha);
