@@ -13,7 +13,7 @@ public class Tweet {
     }
 
     public void publicarTweet(){
-        String fecha_actual = new SimpleDateFormat("dd-MMyyyy", Locale.getDefault()).format(new Date());
+        String fecha_actual = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
         this.fecha = fecha_actual;
     }
 
