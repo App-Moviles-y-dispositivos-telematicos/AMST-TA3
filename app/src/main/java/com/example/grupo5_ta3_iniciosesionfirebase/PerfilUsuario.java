@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PerfilUsuario extends AppCompatActivity {
-    TextView txt_id, txt_name, txt_email,txt_telefono,txt_provider;
+    TextView txt_id, txt_name, txt_email;
     ImageView imv_photo;
     Button btn_logout;
     DatabaseReference db_reference;
@@ -37,21 +37,17 @@ public class PerfilUsuario extends AppCompatActivity {
         txt_name = findViewById(R.id.txt_nombre);
         txt_email = findViewById(R.id.txt_correo);
         imv_photo = findViewById(R.id.imv_foto);
-        txt_telefono = findViewById(R.id.txt_telefono);
-        txt_provider = findViewById(R.id.txt_provider);
 
 
         txt_id.setText(info_user.get("user_id"));
         txt_name.setText(info_user.get("user_name"));
         txt_email.setText(info_user.get("user_email"));
-        txt_telefono.setText(info_user.get("user_telefono"));
-        txt_provider.setText(info_user.get("user_provider"));
 
         String photo = info_user.get("user_photo");
         Picasso.with(getApplicationContext()).load(photo).into(imv_photo);
         iniciarBaseDeDatos();
-        leerTweets();
-        escribirTweets(info_user.get("user_name"));
+        //leerTweets();
+        //escribirTweets(info_user.get("user_name"));
     }
     public void cerrarSesion(View view){
         FirebaseAuth.getInstance().signOut();
@@ -63,8 +59,9 @@ public class PerfilUsuario extends AppCompatActivity {
     public void iniciarBaseDeDatos(){
         db_reference = FirebaseDatabase.getInstance().getReference().child("Grupo");
     }
+
     public void leerTweets(){
-        db_reference.child("Grupo 0").child("tweets").addValueEventListener(new ValueEventListener() {
+        db_reference.child("Grupo 5").child("tweets").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
@@ -82,7 +79,7 @@ public class PerfilUsuario extends AppCompatActivity {
 
     public void escribirTweets(String autor){
         String tweet = "hola mundo firebase 2";
-        String fecha = "23/11/2020";
+        String fecha = "22/12/2020";
         Map<String, String> hola_tweet = new HashMap<String, String>();
         hola_tweet.put("autor", autor);
         hola_tweet.put("fecha", fecha);
@@ -90,5 +87,10 @@ public class PerfilUsuario extends AppCompatActivity {
         tweets.setValue(tweet);
         tweets.child(tweet).child("autor").setValue(autor);
         tweets.child(tweet).child("fecha").setValue(fecha);
+    }
+
+
+    public void irRegistros(View view){
+        Intent intent = new Intent(this, registros.class); startActivity(intent);
     }
 }
