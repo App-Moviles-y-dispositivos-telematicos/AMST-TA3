@@ -41,7 +41,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="irRegistros"
-        android:text="Ver registros" />
+        android:text="Ver registros 1" />
+
+    <Button
+        android:id="@+id/btn_Registro2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="irRegistros2"
+        android:text="Ver Registros 2" />
 
     <Button
         android:id="@+id/btn_logout"

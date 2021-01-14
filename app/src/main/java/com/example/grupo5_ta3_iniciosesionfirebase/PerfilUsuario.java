@@ -91,6 +91,12 @@ public class PerfilUsuario extends AppCompatActivity {
 
 
     public void irRegistros(View view){
-        Intent intent = new Intent(this, registros.class); startActivity(intent);
+        Intent intent = new Intent(this, registros.class);
+        startActivity(intent);
+    }
+
+    public void irRegistros2(View view){
+        Intent intent = new Intent(this, registrosSigfox.class);
+        startActivity(intent);
     }
 }
